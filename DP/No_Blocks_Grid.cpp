@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int pascal(int w, int h,  vector<vector<int>> &cache){
+int pascal(int w, int h,  vector<vector<int>> &cache){ // passing cache by reference
   
   if (w == 1 | h == 1){ // base case
     return 1;
