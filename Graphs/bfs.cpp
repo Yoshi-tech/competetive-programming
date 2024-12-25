@@ -21,7 +21,7 @@ vector <int> bfs(vector<vector<int>>& adj, int s, int n){
     for (auto it: adj[node]){ // iterate through its neighbours
       if (!visited[it]){ // if the neighbour is not visited
         q.push(it); // push it into the queue
-        visited[it] = 1; mark it as visited
+        visited[it] = 1; // mark it as visited
       }
     }
   } // this will repeat until all nodes visited
