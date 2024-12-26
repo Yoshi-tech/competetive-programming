@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main(){
+  string s;
+  vector <int> v = {1,2,3,4};
+  cin >> s; 
+  
+  for(int i = 0; i < s.size(); i++){
+    if(s[i] == 'H'){
+      int temp1 = v[2];
+      v[2] = v[0];
+      v[0] = temp1;
+      
+      int temp2 = v[3];
+      v[3] = v[1];
+      v[1] = temp2;
+    }
+    else{
+      int temp1 = v[1];
+      v[1] = v[0];
+      v[0] = temp1;
+      
+      int temp2 = v[3];
+      v[3] = v[2];
+      v[2] = temp2;
+    }
+  }
+  
+  for(int i = 0; i < 2; i++){
+    cout << v[i] << " ";
+  }
+  cout << endl;
+  cout <<v[2] << " " << v[3];
+} 
+// this is a very brute forced solution
