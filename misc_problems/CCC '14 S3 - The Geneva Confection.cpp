@@ -1,55 +1,52 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <queue>
 #include <stack>
-using namespace std;
 
+using namespace std;
 bool checkOrder(vector <int> &trains){
- stack <int> bridge;
+  stack <int> bridge;
   int expected = 1;
   
-  
-  for(int i = 0; i < trains.size(); i++){
+  for(int i = trains.size() -1; i >= 0; i--){
     if(trains[i] == expected){
       expected++;
     }
     else{
       bridge.push(trains[i]);
+      //cout << "pushed: " << trains[i] << endl;
     }
-      
-  while(!bridge.empty() && bridge.top() == expected){
-
+    
+    while(!bridge.empty() && bridge.top() == expected){
       bridge.pop();
       expected++;
-  }
-  }
+      //cout << "inserting " << bridge.top() << endl;
 
+    }
+  }
+  
+  
   return bridge.empty();
 }
 
-int main() {
-  
+
+
+int main(){
   int t;
   
   cin >> t;
   
-  for(int i =0; i < t; i++){
+  while(t--){
     int n;
+    bool check = 0;
     cin >> n;
     
     vector <int> trains(n);
     
-    for (int j =0; j < n; j++){
-      int u; 
-      cin >> u;
-      
-      trains[j] = u;
-    
+    for(int j =0;  j < n; j++){
+      cin >> trains[j];
     }
-    bool out = checkOrder(trains);
-      
-    if (out){
+    check = checkOrder(trains);
+    if(check){
       cout << 'Y' << endl;
     }
     else{
